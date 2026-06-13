@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evora Salon — Barber Shop in Palghar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #1b1714;
+    --bg-alt: #241f1a;
+    --ivory: #f4ece0;
+    --ivory-dim: #cfc4b4;
+    --gold: #c9a24d;
+    --rust: #9a3324;
+    --navy: #2e4456;
+    --green: #4f7a5b;
+    --line: rgba(244,236,224,0.12);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--ivory);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ivory);
+  }
+
+  .eyebrow{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(27,23,20,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .logo{
+    font-family: 'Fraunces', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .logo span{ color: var(--gold); }
+
+  .nav-links{
+    display: flex;
+    gap: 28px;
+    font-size: 0.95rem;
+  }
+  .nav-links a{
+    text-decoration: none;
+    color: var(--ivory-dim);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a:focus{ color: var(--gold); }
+
+  .nav-cta{
+    background: var(--gold);
+    color: var(--bg);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover, .nav-cta:focus{ background: var(--ivory); }
+
+  .menu-toggle{
+    display: none;
+    background: none;
+    border: none;
+    color: var(--ivory);
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+
+  @media (max-width: 800px){
+    .nav-links{
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: var(--bg-alt);
+      flex-direction: column;
+      padding: 20px 24px;
+      gap: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-links.open{ display: flex; }
+    .menu-toggle{ display: block; }
+    .nav-cta{ display: none; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 0 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .wrap{
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-text h1{
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1;
+    margin: 12px 0 20px;
+  }
+  .hero-text h1 em{
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-text p.tagline{
+    font-size: 1.15rem;
+    color: var(--ivory-dim);
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+
+  .rating-badge{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--line);
+    padding: 10px 18px;
+    border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    margin-bottom: 28px;
+  }
+  .rating-badge .stars{ color: var(--gold); letter-spacing: 2px; }
+
+  .hero-actions{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    display: inline-block;
+    padding: 14px 28px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-family: 'Work Sans', sans-serif;
+  }
+  .btn-primary{
+    background: var(--gold);
+    color: var(--bg);
+  }
+  .btn-primary:hover, .btn-primary:focus{ background: var(--ivory); }
+  .btn-outline{
+    border: 1px solid var(--ivory-dim);
+    color: var(--ivory);
+    background: transparent;
+  }
+  .btn-outline:hover, .btn-outline:focus{
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-meta{
+    margin-top: 36px;
+    font-size: 0.9rem;
+    color: var(--ivory-dim);
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+    max-width: 480px;
+  }
+  .hero-meta strong{ color: var(--ivory); }
+
+  /* ---------- Illustration panels (blueprint style) ---------- */
+  .illustration{
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 28px 28px 22px;
+    position: relative;
+  }
+  .illustration svg{ width: 100%; height: auto; display: block; }
+  .fig-caption{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ivory-dim);
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .fig-caption span:last-child{ color: var(--gold); }
+
+  /* Barber pole signature element */
+  .pole{
+    position: absolute;
+    top: 0; right: 0;
+    width: 14px;
+    height: 100%;
+    border-radius: 0 2px 2px 0;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--rust) 0 18px,
+      var(--ivory) 18px 36px,
+      var(--navy) 36px 54px,
+      var(--ivory) 54px 72px
+    );
+    background-size: 102px 102px;
+    animation: pole-spin 6s linear infinite;
+  }
+  @keyframes pole-spin{
+    from{ background-position: 0 0; }
+    to{ background-position: 0 102px; }
+  }
+  .illustration{ padding-right: 40px; }
+
+  @media (max-width: 860px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .hero-text{ order: 1; }
+    .illustration{ order: 2; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .pole{ animation: none; }
+    html{ scroll-behavior: auto; }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+  .section-head{
+    margin-bottom: 48px;
+    max-width: 640px;
+  }
+  .section-head h2{
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    margin-top: 10px;
+  }
+  .section-head p{
+    color: var(--ivory-dim);
+    margin-top: 14px;
+  }
+
+  /* About */
+  .about-grid{
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .about-grid p{ color: var(--ivory-dim); margin-bottom: 16px; }
+  .about-stats{
+    display: grid;
+    gap: 24px;
+    border-left: 1px solid var(--line);
+    padding-left: 32px;
+    margin-top: 32px;
+  }
+  .stat-num{
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label{
+    font-size: 0.85rem;
+    color: var(--ivory-dim);
+    margin-top: 4px;
+  }
+  @media (max-width: 860px){
+    .about-grid{ grid-template-columns: 1fr; gap: 40px; }
+    .about-grid .illustration{ order: -1; }
+    .about-stats{ border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 24px; grid-template-columns: repeat(3,1fr); }
+  }
+  @media (max-width: 600px){
+    .about-stats{ grid-template-columns: 1fr; }
+  }
+
+  /* Services */
+  .services-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .service-card{
+    background: var(--bg);
+    padding: 36px 28px;
+    transition: background 0.25s;
+  }
+  .service-card:hover{ background: var(--bg-alt); }
+  .service-card .icon{
+    width: 30px;
+    height: 30px;
+    color: var(--gold);
+    margin-bottom: 18px;
+  }
+  .service-card .icon svg{ display:block; width:100%; height:100%; }
+  .service-card .num{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ivory-dim);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .service-card h3{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  .service-card p{
+    color: var(--ivory-dim);
+    font-size: 0.92rem;
+  }
+  @media (max-width: 900px){
+    .services-grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px){
+    .services-grid{ grid-template-columns: 1fr; }
+  }
+  .services-note{
+    margin-top: 28px;
+    font-size: 0.9rem;
+    color: var(--ivory-dim);
+    font-family: 'Space Mono', monospace;
+  }
+
+  /* Reviews */
+  .reviews-panel{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 56px;
+    align-items: center;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    padding: 48px;
+  }
+  .reviews-score{
+    text-align: center;
+  }
+  .reviews-score .big{
+    font-family: 'Fraunces', serif;
+    font-size: 4.5rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .reviews-score .stars{
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    margin: 12px 0 6px;
+  }
+  .reviews-score .count{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ivory-dim);
+  }
+  .reviews-text h3{ margin-bottom: 12px; font-size: 1.5rem; }
+  .reviews-text p{ color: var(--ivory-dim); margin-bottom: 20px; }
+  @media (max-width: 700px){
+    .reviews-panel{ grid-template-columns: 1fr; text-align: center; padding: 32px 24px; }
+  }
+
+  /* ---------- Booking ---------- */
+  .book-grid{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 56px;
+    align-items: start;
+  }
+  .form-field{ margin-bottom: 20px; }
+  .form-field label{
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ivory-dim);
+    margin-bottom: 8px;
+  }
+  .form-field input,
+  .form-field select{
+    width: 100%;
+    background: var(--bg-alt);
+    border: 1px solid var(--line);
+    color: var(--ivory);
+    padding: 12px 14px;
+    font-family: 'Work Sans', sans-serif;
+    font-size: 0.95rem;
+    border-radius: 2px;
+    appearance: none;
+  }
+  .form-field input::-webkit-calendar-picker-indicator{ filter: invert(0.85); cursor: pointer; }
+  .form-field input:focus,
+  .form-field select:focus{
+    outline: none;
+    border-color: var(--gold);
+  }
+  .form-row{ display: flex; gap: 16px; }
+  .form-row .form-field{ flex: 1; }
+
+  .slot-section-title{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ivory-dim);
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .slot-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .slot{
+    border: 1px solid var(--line);
+    padding: 12px 4px;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 2px;
+    background: var(--bg-alt);
+    color: var(--ivory-dim);
+    transition: all 0.15s;
+    user-select: none;
+  }
+  .slot.available:hover{ border-color: var(--gold); color: var(--ivory); }
+  .slot.selected{
+    background: var(--gold);
+    color: var(--bg);
+    border-color: var(--gold);
+    font-weight: 700;
+  }
+  .slot.busy{
+    opacity: 0.35;
+    cursor: not-allowed;
+    text-decoration: line-through;
+  }
+  @media (max-width: 500px){
+    .slot-grid{ grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .legend{
+    display: flex;
+    gap: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ivory-dim);
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+  .legend span{ display: inline-flex; align-items: center; gap: 6px; }
+  .legend .dot{
+    width: 10px; height: 10px; border-radius: 50%;
+    display: inline-block;
+    border: 1px solid var(--line);
+    background: var(--bg-alt);
+  }
+  .legend .dot.busy{ opacity: 0.35; }
+  .legend .dot.selected{ background: var(--gold); border-color: var(--gold); }
+
+  .whatsapp-btn{
+    background: var(--green);
+    color: var(--ivory);
+    border: none;
+    width: 100%;
+    padding: 16px 28px;
+  }
+  .whatsapp-btn:hover, .whatsapp-btn:focus{ background: #5e8f6c; }
+  .whatsapp-btn:disabled{
+    background: var(--bg-alt);
+    color: var(--ivory-dim);
+    cursor: not-allowed;
+    border: 1px solid var(--line);
+  }
+
+  .booking-note{
+    font-size: 0.85rem;
+    color: var(--ivory-dim);
+    margin-top: 16px;
+    line-height: 1.6;
+  }
+
+  .saved-bookings{
+    margin-top: 28px;
+    border-top: 1px solid var(--line);
+    padding-top: 20px;
+  }
+  .saved-bookings h4{
+    font-family: 'Space Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ivory-dim);
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+  .booking-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    padding: 12px 0;
+    font-size: 0.9rem;
+    gap: 12px;
+  }
+  .booking-item .meta{ color: var(--ivory-dim); font-size: 0.8rem; }
+  .booking-item button{
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--rust);
+    cursor: pointer;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .booking-item button:hover{ border-color: var(--rust); }
+  .empty-state{
+    color: var(--ivory-dim);
+    font-size: 0.88rem;
+    font-style: italic;
+  }
+
+  @media (max-width: 860px){
+    .book-grid{ grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* Hours + Location */
+  .info-grid{
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 56px;
+  }
+  .hours-table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .hours-table tr{ border-bottom: 1px solid var(--line); }
+  .hours-table tr:last-child{ border-bottom: none; }
+  .hours-table td{
+    padding: 14px 0;
+  }
+  .hours-table td:last-child{
+    text-align: right;
+    font-family: 'Space Mono', monospace;
+    color: var(--gold);
+  }
+  .hours-note{
+    margin-top: 18px;
+    font-size: 0.85rem;
+    color: var(--ivory-dim);
+  }
+
+  .map-frame{
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border: 1px solid var(--line);
+    filter: grayscale(0.4) contrast(1.05);
+  }
+
+  .address-card{
+    margin-top: 20px;
+    font-size: 0.95rem;
+    color: var(--ivory-dim);
+  }
+  .address-card strong{ color: var(--ivory); display: block; margin-bottom: 4px; }
+
+  @media (max-width: 800px){
+    .info-grid{ grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* CTA band */
+  .cta-band{
+    text-align: center;
+    padding: 90px 0;
+    border-top: 1px solid var(--line);
+  }
+  .cta-band h2{
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    margin: 10px 0 28px;
+  }
+  .cta-band .hero-actions{ justify-content: center; }
+
+  /* Footer */
+  footer{
+    border-top: 1px solid var(--line);
+    padding: 48px 0;
+  }
+  .footer-grid{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+  }
+  .footer-grid .logo{ font-size: 1.2rem; }
+  .footer-meta{
+    font-size: 0.85rem;
+    color: var(--ivory-dim);
+    text-align: right;
+  }
+  @media (max-width: 600px){
+    .footer-grid{ flex-direction: column; text-align: center; }
+    .footer-meta{ text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">EVORA <span>SALON</span></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#book">Book a Slot</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#hours">Hours &amp; Location</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="#book">Book Now</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="eyebrow">Barber Shop · Palghar, Maharashtra</p>
+      <h1>Sharp cuts,<br><em>quietly</em> done well.</h1>
+      <p class="tagline">Evora Salon is Palghar's neighbourhood barbershop for classic haircuts, clean beard work and a proper hot towel shave — no rush, no fuss.</p>
+
+      <div class="rating-badge">
+        <span class="stars">★★★★★</span>
+        <span>4.8 rated · 21 Google reviews</span>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#book">Check Slot &amp; Book</a>
+        <a class="btn btn-outline" href="tel:+917875034544">Call · 078750 34544</a>
+      </div>
+
+      <div class="hero-meta">
+        <strong>Shop No. 4, Elegance, 5-6, Mahim Rd</strong>
+        Near Swami Samarth Math, Palghar, Maharashtra 401404
+      </div>
+    </div>
+
+    <div class="illustration">
+      <div class="pole" aria-hidden="true"></div>
+      <svg viewBox="0 0 380 440" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--ivory-dim)" stroke-width="1.5">
+        <!-- dimension line -->
+        <line x1="40" y1="30" x2="320" y2="30" stroke="var(--gold)" stroke-dasharray="3 5"/>
+        <line x1="40" y1="22" x2="40" y2="38" stroke="var(--gold)"/>
+        <line x1="320" y1="22" x2="320" y2="38" stroke="var(--gold)"/>
+        <text x="180" y="20" fill="var(--gold)" font-family="Space Mono" font-size="11" text-anchor="middle">CHAIR No.01</text>
+
+        <!-- headrest -->
+        <rect x="135" y="50" width="110" height="34" rx="6"/>
+        <!-- backrest -->
+        <rect x="115" y="84" width="150" height="150" rx="10"/>
+        <!-- seat cushion -->
+        <rect x="80" y="244" width="220" height="36" rx="6"/>
+        <!-- armrests -->
+        <rect x="55" y="234" width="28" height="64" rx="5"/>
+        <rect x="297" y="234" width="28" height="64" rx="5"/>
+        <!-- hydraulic column -->
+        <rect x="165" y="280" width="50" height="100" rx="4"/>
+        <!-- base -->
+        <ellipse cx="190" cy="400" rx="95" ry="14"/>
+        <line x1="190" y1="380" x2="190" y2="392" stroke="var(--ivory-dim)"/>
+
+        <!-- callout 1 -->
+        <circle cx="190" cy="160" r="13" stroke="var(--gold)"/>
+        <text x="190" y="164" fill="var(--gold)" font-family="Space Mono" font-size="12" text-anchor="middle">1</text>
+        <!-- callout 2 -->
+        <circle cx="60" cy="262" r="13" stroke="var(--gold)"/>
+        <text x="60" y="266" fill="var(--gold)" font-family="Space Mono" font-size="12" text-anchor="middle">2</text>
+        <!-- callout 3 -->
+        <circle cx="190" cy="330" r="13" stroke="var(--gold)"/>
+        <text x="190" y="334" fill="var(--gold)" font-family="Space Mono" font-size="12" text-anchor="middle">3</text>
+
+        <!-- legend -->
+        <text x="40" y="425" fill="var(--ivory-dim)" font-family="Space Mono" font-size="10">1 BACKREST</text>
+        <text x="40" y="438" fill="var(--ivory-dim)" font-family="Space Mono" font-size="10">2 ARMREST</text>
+        <text x="220" y="425" fill="var(--ivory-dim)" font-family="Space Mono" font-size="10">3 HYDRAULIC LIFT</text>
+      </svg>
+      <div class="fig-caption">
+        <span>FIG. 01 — THE CHAIR</span>
+        <span>EST. PALGHAR</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About the shop</p>
+      <h2 style="margin-top:10px; margin-bottom:24px;">A barbershop built on regulars.</h2>
+      <p>Tucked into Elegance on Mahim Road, Evora Salon has built its name the old-fashioned way — one good haircut at a time. Customers in Palghar come back for the same chair, the same barber, and the same attention to the small details: a clean fade line, a properly shaped beard, a shave that doesn't rush.</p>
+      <p>Walk-ins are welcome, the chairs turn over quickly, and the team takes the time to get the cut right rather than just done.</p>
+      <div class="about-stats">
+        <div>
+          <div class="stat-num">4.8</div>
+          <div class="stat-label">Average Google rating from 21 reviews</div>
+        </div>
+        <div>
+          <div class="stat-num">Walk-in</div>
+          <div class="stat-label">Friendly — no appointment required</div>
+        </div>
+        <div>
+          <div class="stat-num">Mahim Rd</div>
+          <div class="stat-label">Near Swami Samarth Math, Palghar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="illustration">
+      <svg viewBox="0 0 360 420" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="var(--ivory-dim)" stroke-width="1.5">
+        <!-- comb -->
+        <g transform="translate(40,40) rotate(-8)">
+          <rect x="0" y="0" width="220" height="30" rx="4"/>
+          <line x1="10" y1="30" x2="10" y2="60"/>
+          <line x1="28" y1="30" x2="28" y2="60"/>
+          <line x1="46" y1="30" x2="46" y2="60"/>
+          <line x1="64" y1="30" x2="64" y2="60"/>
+          <line x1="82" y1="30" x2="82" y2="60"/>
+          <line x1="100" y1="30" x2="100" y2="60"/>
+          <line x1="118" y1="30" x2="118" y2="60"/>
+          <line x1="136" y1="30" x2="136" y2="60"/>
+          <line x1="154" y1="30" x2="154" y2="60"/>
+          <line x1="172" y1="30" x2="172" y2="60"/>
+          <line x1="190" y1="30" x2="190" y2="60"/>
+          <line x1="208" y1="30" x2="208" y2="60"/>
+        </g>
+
+        <!-- scissors -->
+        <g transform="translate(80,180) rotate(18)" stroke="var(--gold)">
+          <circle cx="0" cy="0" r="16"/>
+          <circle cx="0" cy="60" r="16"/>
+          <line x1="12" y1="10" x2="160" y2="120"/>
+          <line x1="12" y1="50" x2="160" y2="-60"/>
+          <circle cx="12" cy="10" r="3" fill="var(--gold)"/>
+          <circle cx="12" cy="50" r="3" fill="var(--gold)"/>
+        </g>
+
+        <!-- straight razor -->
+        <g transform="translate(150,300) rotate(-10)">
+          <rect x="0" y="0" width="120" height="18" rx="4"/>
+          <path d="M120,2 L230,9 L120,16 Z"/>
+          <line x1="60" y1="0" x2="60" y2="18" stroke-dasharray="2 4"/>
+        </g>
+
+        <!-- dimension marks -->
+        <line x1="30" y1="20" x2="30" y2="380" stroke="var(--gold)" stroke-dasharray="3 5"/>
+        <line x1="22" y1="20" x2="38" y2="20" stroke="var(--gold)"/>
+        <line x1="22" y1="380" x2="38" y2="380" stroke="var(--gold)"/>
+      </svg>
+      <div class="fig-caption">
+        <span>FIG. 02 — TOOLS OF THE TRADE</span>
+        <span>HAND-SHARPENED</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What we do</p>
+      <h2>Services at the chair</h2>
+      <p>From a quick trim to a full grooming session — every service is finished with the same care.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="4"/><circle cx="8" cy="24" r="4"/><line x1="11" y1="11" x2="28" y2="28"/><line x1="11" y1="21" x2="28" y2="4"/></svg></div>
+        <span class="num">01</span>
+        <h3>Haircut &amp; Styling</h3>
+        <p>Classic and modern cuts, fades, crops and styling finished to suit your face shape.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="13" width="16" height="6" rx="1.5"/><path d="M19 16 L29 12 L29 20 Z"/></svg></div>
+        <span class="num">02</span>
+        <h3>Beard Trim &amp; Shape-up</h3>
+        <p>Precise beard shaping, line-ups and edge work for a sharp, clean finish.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="14" width="14" height="5" rx="1.2"/><path d="M18 16 L28 13 L28 19 Z"/><line x1="11" y1="14" x2="11" y2="19" stroke-dasharray="1 2"/></svg></div>
+        <span class="num">03</span>
+        <h3>Hot Towel Shave</h3>
+        <p>A traditional straight-razor shave with hot towels and finishing balm.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="10" r="1.6" fill="currentColor"/><circle cx="11" cy="18" r="1.6" fill="currentColor"/><circle cx="21" cy="18" r="1.6" fill="currentColor"/></svg></div>
+        <span class="num">04</span>
+        <h3>Hair Colour &amp; Highlights</h3>
+        <p>Grey coverage, global colour and subtle highlights for a natural look.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 18 C8 10, 12 24, 16 16 C20 8, 24 22, 28 14"/></svg></div>
+        <span class="num">05</span>
+        <h3>Head &amp; Shoulder Massage</h3>
+        <p>A relaxing oil massage to ease tension after a long week.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="16" cy="16" r="11"/><circle cx="12" cy="13" r="1.4" fill="currentColor" stroke="none"/><circle cx="20" cy="13" r="1.4" fill="currentColor" stroke="none"/><path d="M11 20 Q16 24 21 20"/></svg></div>
+        <span class="num">06</span>
+        <h3>Kids' Haircut</h3>
+        <p>Patient, friendly cuts for younger customers in a comfortable setting.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4 L19 13 L28 16 L19 19 L16 28 L13 19 L4 16 L13 13 Z"/></svg></div>
+        <span class="num">07</span>
+        <h3>Facial &amp; Cleanup</h3>
+        <p>Deep cleansing facials and quick cleanups to freshen up your skin.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4 C22 14 24 18 24 21 C24 26 20 29 16 29 C12 29 8 26 8 21 C8 18 10 14 16 4 Z"/></svg></div>
+        <span class="num">08</span>
+        <h3>Hair Spa &amp; Treatment</h3>
+        <p>Nourishing spa treatments for dry or damaged hair.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="22" height="17" rx="1.5"/><line x1="5" y1="17" x2="27" y2="17"/><line x1="16" y1="11" x2="16" y2="28"/><path d="M11 11 C11 7 13 5 16 5 C19 5 21 7 21 11"/></svg></div>
+        <span class="num">09</span>
+        <h3>Grooming Packages</h3>
+        <p>Combine a cut, beard and shave into one relaxed session — ask your barber.</p>
+      </div>
+
+    </div>
+    <p class="services-note">* Pricing varies by service — ask our barbers in-store or call ahead for current rates.</p>
+  </div>
+</section>
+
+<section id="book">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Reserve your chair</p>
+      <h2>Check a slot &amp; book</h2>
+      <p>Pick a service and date to see typical availability, choose a time, and send your booking request straight to the shop on WhatsApp — we'll confirm it from there.</p>
+    </div>
+
+    <div class="book-grid">
+      <div>
+        <div class="form-field">
+          <label for="svc">Service</label>
+          <select id="svc">
+            <option>Haircut &amp; Styling</option>
+            <option>Beard Trim &amp; Shape-up</option>
+            <option>Hot Towel Shave</option>
+            <option>Hair Colour &amp; Highlights</option>
+            <option>Head &amp; Shoulder Massage</option>
+            <option>Kids' Haircut</option>
+            <option>Facial &amp; Cleanup</option>
+            <option>Hair Spa &amp; Treatment</option>
+            <option>Grooming Package</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="date">Date</label>
+          <input type="date" id="date">
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" placeholder="Full name">
+          </div>
+          <div class="form-field">
+            <label for="phone">Your phone</label>
+            <input type="tel" id="phone" placeholder="10-digit number">
+          </div>
+        </div>
+
+        <div id="formMsg" class="booking-note" style="display:none;"></div>
+
+        <div class="saved-bookings">
+          <h4>Your saved requests</h4>
+          <div id="bookingsList"><p class="empty-state">No booking requests yet.</p></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="slot-section-title">
+          <span id="slotDateLabel">Select a date to view slots</span>
+          <span id="slotCount"></span>
+        </div>
+        <div class="slot-grid" id="slotGrid"></div>
+
+        <div class="legend">
+          <span><i class="dot"></i> Usually open</span>
+          <span><i class="dot busy"></i> Usually busy</span>
+          <span><i class="dot selected"></i> Your pick</span>
+        </div>
+
+        <button class="btn whatsapp-btn" id="waBtn" disabled>Send Booking Request via WhatsApp</button>
+        <p class="booking-note">Availability above is a typical pattern for Evora Salon, not a live calendar — your request goes to the shop on WhatsApp (or call 078750 34544) and the team will confirm the exact time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Word of mouth</p>
+      <h2>What Palghar says</h2>
+    </div>
+    <div class="reviews-panel">
+      <div class="reviews-score">
+        <div class="big">4.8</div>
+        <div class="stars">★★★★★</div>
+        <div class="count">21 Google reviews</div>
+      </div>
+      <div class="reviews-text">
+        <h3>Rated highly by regulars across Palghar</h3>
+        <p>Evora Salon holds a 4.8 out of 5 rating on Google from customers across the area — built on consistent haircuts, friendly service and a shop that's easy to find on Mahim Road.</p>
+        <a class="btn btn-outline" href="https://www.google.com/search?q=evora+salon+palghar+reviews" target="_blank" rel="noopener">Read reviews on Google</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="hours">
+  <div class="wrap info-grid">
+    <div>
+      <p class="eyebrow">Hours</p>
+      <h2 style="margin: 10px 0 24px; font-size: 2rem;">When we're open</h2>
+      <table class="hours-table">
+        <tr><td>Monday – Saturday</td><td>10:00 AM – 9:00 PM</td></tr>
+        <tr><td>Sunday</td><td>10:00 AM – 8:00 PM</td></tr>
+      </table>
+      <p class="hours-note">Hours shown are indicative — please call 078750 34544 to confirm before visiting, especially on holidays.</p>
+    </div>
+    <div>
+      <p class="eyebrow">Find us</p>
+      <h2 style="margin: 10px 0 24px; font-size: 2rem;">On Mahim Road</h2>
+      <iframe
+        class="map-frame"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Evora+Salon,+Mahim+Rd,+Palghar,+Maharashtra+401404&output=embed"
+        title="Map showing Evora Salon location">
+      </iframe>
+      <div class="address-card">
+        <strong>Shop No. 4, Elegance, 5-6, Mahim Rd</strong>
+        Near Swami Samarth Math, Palghar, Maharashtra 401404
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <p class="eyebrow">Ready when you are</p>
+    <h2>Walk in, or book ahead.</h2>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#book">Check Slot &amp; Book</a>
+      <a class="btn btn-outline" href="tel:+917875034544">Call · 078750 34544</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="logo">EVORA <span style="color:var(--gold);">SALON</span></div>
+    <div class="footer-meta">
+      Shop No. 4, Elegance, 5-6, Mahim Rd, Palghar, Maharashtra 401404<br>
+      078750 34544 · 4.8★ on Google (21 reviews)
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ---- nav toggle ---- */
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', false);
+  }));
+
+  /* ---- booking widget ---- */
+  const SHOP_PHONE = '917875034544';
+  const TIME_SLOTS = [];
+  for (let h = 10; h <= 20; h++) {
+    TIME_SLOTS.push(formatTime(h, 0));
+    if (h !== 20) TIME_SLOTS.push(formatTime(h, 30));
+  }
+  function formatTime(h, m){
+    const period = h >= 12 ? 'PM' : 'AM';
+    let hour = h % 12; if (hour === 0) hour = 12;
+    return hour + ':' + (m === 0 ? '00' : '30') + ' ' + period;
+  }
+
+  // Deterministic pseudo-availability so the same date always looks the same
+  function isUsuallyBusy(dateStr, slotIndex){
+    let hash = 0;
+    const str = dateStr + '#' + slotIndex;
+    for (let i = 0; i < str.length; i++) hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+    return (hash % 100) < 30; // ~30% of slots look busy
+  }
+
+  const dateInput = document.getElementById('date');
+  const slotGrid = document.getElementById('slotGrid');
+  const slotDateLabel = document.getElementById('slotDateLabel');
+  const slotCount = document.getElementById('slotCount');
+  const waBtn = document.getElementById('waBtn');
+  const formMsg = document.getElementById('formMsg');
+  let selectedSlot = null;
+
+  // default date = today
+  const today = new Date();
+  dateInput.value = today.toISOString().slice(0,10);
+  dateInput.min = today.toISOString().slice(0,10);
+
+  function renderSlots(){
+    const dateStr = dateInput.value;
+    selectedSlot = null;
+    updateWaBtn();
+    if (!dateStr){
+      slotGrid.innerHTML = '';
+      slotDateLabel.textContent = 'Select a date to view slots';
+      slotCount.textContent = '';
+      return;
+    }
+    const d = new Date(dateStr + 'T00:00:00');
+    slotDateLabel.textContent = d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
+
+    const myBookings = getBookings().filter(b => b.date === dateStr).map(b => b.time);
+
+    let availableCount = 0;
+    slotGrid.innerHTML = '';
+    TIME_SLOTS.forEach((time, i) => {
+      const busy = isUsuallyBusy(dateStr, i) || myBookings.includes(time);
+      if (!busy) availableCount++;
+      const el = document.createElement('div');
+      el.className = 'slot ' + (busy ? 'busy' : 'available');
+      el.textContent = time;
+      el.dataset.time = time;
+      if (!busy){
+        el.addEventListener('click', () => {
+          slotGrid.querySelectorAll('.slot.selected').forEach(s => s.classList.remove('selected'));
+          el.classList.add('selected');
+          selectedSlot = time;
+          updateWaBtn();
+        });
+      }
+      slotGrid.appendChild(el);
+    });
+    slotCount.textContent = availableCount + ' of ' + TIME_SLOTS.length + ' usually open';
+  }
+
+  function updateWaBtn(){
+    waBtn.disabled = !selectedSlot;
+  }
+
+  dateInput.addEventListener('change', renderSlots);
+  renderSlots();
+
+  /* ---- saved bookings (this browser only) ---- */
+  function getBookings(){
+    try { return JSON.parse(localStorage.getItem('evora_bookings') || '[]'); }
+    catch(e){ return []; }
+  }
+  function saveBookings(list){
+    localStorage.setItem('evora_bookings', JSON.stringify(list));
+  }
+  function renderBookings(){
+    const list = getBookings();
+    const container = document.getElementById('bookingsList');
+    if (!list.length){
+      container.innerHTML = '<p class="empty-state">No booking requests yet.</p>';
+      return;
+    }
+    container.innerHTML = '';
+    list.forEach((b, idx) => {
+      const d = new Date(b.date + 'T00:00:00');
+      const dateLabel = d.toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'short' });
+      const row = document.createElement('div');
+      row.className = 'booking-item';
+      row.innerHTML = '<div><div>' + b.service + '</div><div class="meta">' + dateLabel + ' · ' + b.time + '</div></div>';
+      const btn = document.createElement('button');
+      btn.textContent = 'Remove';
+      btn.addEventListener('click', () => {
+        const updated = getBookings();
+        updated.splice(idx, 1);
+        saveBookings(updated);
+        renderBookings();
+        renderSlots();
+      });
+      row.appendChild(btn);
+      container.appendChild(row);
+    });
+  }
+  renderBookings();
+
+  waBtn.addEventListener('click', () => {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('svc').value;
+    const dateStr = dateInput.value;
+
+    if (!selectedSlot || !dateStr){
+      showMsg('Please pick a date and an available time slot.');
+      return;
+    }
+    if (!name || !phone){
+      showMsg('Please add your name and phone number so the shop can confirm.');
+      return;
+    }
+
+    const d = new Date(dateStr + 'T00:00:00');
+    const dateLabel = d.toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+
+    const message = 'Hi Evora Salon, I would like to book:\n' +
+      'Service: ' + service + '\n' +
+      'Date: ' + dateLabel + '\n' +
+      'Time: ' + selectedSlot + '\n' +
+      'Name: ' + name + '\n' +
+      'Phone: ' + phone;
+
+    // save locally for this browser
+    const bookings = getBookings();
+    bookings.push({ service, date: dateStr, time: selectedSlot, name, phone });
+    saveBookings(bookings);
+    renderBookings();
+    renderSlots();
+
+    showMsg('Request saved. Opening WhatsApp to send it to the shop…');
+    window.open('https://wa.me/' + SHOP_PHONE + '?text=' + encodeURIComponent(message), '_blank');
+  });
+
+  function showMsg(text){
+    formMsg.textContent = text;
+    formMsg.style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
